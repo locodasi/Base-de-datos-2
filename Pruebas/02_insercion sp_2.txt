@@ -1,0 +1,7 @@
+/*Se debe llamar al finalizar la semana, no al inicio*/
+CALL carga_horas_semanal(22,"Base de datos covid",45,NOW());
+CALL carga_horas_semanal(1111,"Red social",35,NOW());
+CALL carga_horas_semanal(1212,"Maquina extractora de gritos ",35,NOW());
+CALL carga_horas_semanal(2222,"Red social",30,NOW());
+CALL carga_horas_semanal(3113,"Red social",33,NOW());
+SELECT * FROM horas_rendidas;

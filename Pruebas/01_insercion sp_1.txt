@@ -1,0 +1,8 @@
+CALL carga_horas_diarias(22,"Base de datos covid",7,NOW());
+CALL carga_horas_diarias(1111,"Base de datos covid",7,NOW());
+CALL carga_horas_diarias(1212,"Maquina extractora de gritos ",8,NOW());
+CALL carga_horas_diarias(2222,"Base de datos covid",7,NOW());
+CALL carga_horas_diarias(6677,"Base de datos covid",5,NOW());
+CALL carga_horas_diarias(3113,"Red social",7,NOW());
+
+SELECT * FROM horas_rendidas;

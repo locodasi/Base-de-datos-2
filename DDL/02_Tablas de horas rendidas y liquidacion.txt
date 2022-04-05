@@ -4,15 +4,15 @@ proyecto varchar (255) not null,
 horas int,
 dia datetime,
 hasta datetime,
-constraint primary key (legajo,proyecto),
 constraint foreign key (legajo) references Participantes (legajo),
 constraint foreign key (proyecto) references Participantes (proyecto)
 );
 
 CREATE TABLE liquidacion(
-id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 legajo INT NOT NULL,
 proyecto VARCHAR(255) NOT NULL,
 horas INT,
-mes INT
+mes INT,
+constraint foreign key (legajo) references horas_rendidas (legajo),
+constraint foreign key (proyecto) references horas_rendidas (proyecto)
 );

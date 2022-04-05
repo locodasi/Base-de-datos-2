@@ -1,0 +1,6 @@
+delimiter $$
+CREATE PROCEDURE carga_horas_mensuales(legajo INT, proyecto varchar(255), horas INT, fecha datetime)
+BEGIN
+INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,DATE_ADD(fecha,INTERVAL -1 month),fecha);
+end
+$$
