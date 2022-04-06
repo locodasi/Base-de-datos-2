@@ -1,0 +1,6 @@
+CALL carga_horas_diarias(1111, "Base de datos covid", 7, date_add(NOW(),INTERVAL 2 MONTH));
+CALL carga_horas_mensuales(22, "Base de datos covid", 70, date_add(NOW(),INTERVAL 2 MONTH));
+
+/*Cambie el horario de la computadora a junio*/
+CALL Calcular_Liquidacion_mensual();
+SELECT * FROM liquidacion

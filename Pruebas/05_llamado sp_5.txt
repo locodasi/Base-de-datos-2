@@ -1,0 +1,5 @@
+/*El dato 1111 Red social va a cambiar de 135 a 130*/
+
+CALL modificar_liquidacion (1111,"Red social",130,NOW())
+
+SELECT * FROM liquidacion

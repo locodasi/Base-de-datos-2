@@ -1,0 +1,9 @@
+delimiter $$
+CREATE PROCEDURE modificar_liquidacion (legajo1 int,proyecto1 VARCHAR(255),hora INT, fecha DATETIME)
+BEGIN
+
+UPDATE liquidacion set horas=hora
+WHERE legajo=legajo1 AND proyecto=proyecto1 AND mes = MONTH(fecha);
+
+end
+$$
