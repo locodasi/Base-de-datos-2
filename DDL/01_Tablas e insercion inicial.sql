@@ -5,7 +5,7 @@ nombre varchar(255)
 
 create table Proyectos(
 cliente varchar (255) not null,
-proyecto varchar (255) not null primary key,
+proyecto varchar (255) not null PRIMARY key,
 centro_costos varchar(255),
 centro_facturacion varchar(255)
 );

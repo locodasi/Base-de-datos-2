@@ -3,10 +3,12 @@ CREATE PROCEDURE Calcular_Liquidacion_mensual()
 BEGIN
 
 INSERT INTO liquidacion ()(
-SELECT h.legajo, h.proyecto, SUM(h.horas) AS horas_trabajadas, MONTH (NOW()) AS mes
-FROM horas_rendidas h
+
+SELECT p.rol, h.proyecto, SUM(h.horas)AS horas_trabajadas,MONTH (NOW()) AS mes
+FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND h.proyecto=h.proyecto
 WHERE MONTH(h.dia)=MONTH (NOW()) OR MONTH(h.hasta) = MONTH(NOW())
-GROUP BY h.legajo,h.proyecto
+GROUP BY h.proyecto,p.rol
+
 );
 
 end

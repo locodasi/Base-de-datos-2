@@ -1,23 +1,15 @@
 /*
-RESULTADO:
-
-LEGAJO     PROYECTO          					HORAS    MES
-"22"		"Base de datos covid"				"52"		"4"
-"1111"	"Base de datos covid"				"7"		"4"
-"1111"	"Red social"							"135"		"4"
-"1212"	"Maquina extractora de gritos "	"43"		"4"
-"1234"	"Base de datos covid"				"100"		"4"
-"1234"	"Red social"							"110"		"4"
-"2222"	"Base de datos covid"				"7"		"4"
-"2222"	"Red social"							"30"		"4"
-"3113"	"Red social"							"40"		"4"
-"6677"	"Base de datos covid"				"5"		"4"
-"6677"	"Red social"							"56"		"4"
-"8787"	"Maquina extractora de gritos "	"35"		"4"
-"9980"	"Maquina extractora de gritos "	"95"		"4"
-"9999"	"Maquina extractora de gritos "	"85"		"4"
-
+"developer"	"Base de datos covid"	"171"	"4"
+"Diseñador"	"Base de datos covid"	"5"	"4"
+"Tester"	"Base de datos covid"	"114"	"4"
+"Developer"	"Maquina extractora de gritos "	"85"	"4"
+"Marketing"	"Maquina extractora de gritos "	"35"	"4"
+"Programador"	"Maquina extractora de gritos "	"138"	"4"
+"developer"	"Red social"	"371"	"4"
+"Diseñador"	"Red social"	"56"	"4"
+"Tester"	"Red social"	"275"	"4"
 
 */
-CALL Calcular_Liquidacion_mensual();
+
+CALL Calcular_Liquidacion_mensual()
 SELECT * FROM liquidacion

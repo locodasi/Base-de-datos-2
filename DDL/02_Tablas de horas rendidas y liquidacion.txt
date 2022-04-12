@@ -9,10 +9,9 @@ constraint foreign key (proyecto) references Participantes (proyecto)
 );
 
 CREATE TABLE liquidacion(
-legajo INT NOT NULL,
+rol VARCHAR(255) NOT NULL,
 proyecto VARCHAR(255) NOT NULL,
 horas INT,
 mes INT,
-constraint foreign key (legajo) references horas_rendidas (legajo),
 constraint foreign key (proyecto) references horas_rendidas (proyecto)
 );
