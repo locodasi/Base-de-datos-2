@@ -1,0 +1,29 @@
+delimiter
+$$
+CREATE PROCEDURE Ajuste_Liquidacion( in rol1 VARCHAR(255), in  proyecto1 varchar(255), in mes1 INT)
+BEGIN
+
+SET @diff=0;
+SET @numero_rendidas=0;
+SET @numero_liq=0;
+
+select @numero_rendidas:=SUM(h.horas)
+FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
+WHERE p.rol=rol1 AND h.proyecto=proyecto1 AND (MONTH(h.dia)=mes1 OR MONTH(h.hasta) = mes1);
+
+SELECT @numero_liq:=horas
+FROM liquidacion l
+WHERE l.rol=rol1 AND l.proyecto=proyecto1 AND l.mes=mes1;
+
+
+ SET @diff= @numero_rendidas - @numero_liq;
+ 
+ SELECT @diff;
+
+
+	IF @diff != 0 THEN 
+	INSERT INTO liquidacion() VALUES (rol1,proyecto1,@diff,mes1);
+    END IF;
+
+END;
+$$

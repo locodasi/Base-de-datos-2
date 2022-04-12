@@ -1,15 +1,16 @@
+
 /*
-"developer"	"Base de datos covid"	"171"	"4"
+"developer"	"Base de datos covid"	"159"	"4"
 "Diseñador"	"Base de datos covid"	"5"	"4"
-"Tester"	"Base de datos covid"	"114"	"4"
+"Tester"	"Base de datos covid"	"7"	"4"
 "Developer"	"Maquina extractora de gritos "	"85"	"4"
 "Marketing"	"Maquina extractora de gritos "	"35"	"4"
 "Programador"	"Maquina extractora de gritos "	"138"	"4"
-"developer"	"Red social"	"371"	"4"
-"Diseñador"	"Red social"	"56"	"4"
-"Tester"	"Red social"	"275"	"4"
+"Developer"	"Red social"	"231"	"4"
+"Tester"	"Red social"	"140"	"4"
+
 
 */
 
-CALL Calcular_Liquidacion_mensual()
-SELECT * FROM liquidacion
+CALL Calcular_Liquidacion_mensual();
+SELECT * FROM liquidacion;

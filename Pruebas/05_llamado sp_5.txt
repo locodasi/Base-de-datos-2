@@ -1,0 +1,6 @@
+UPDATE horas_rendidas SET horas=4
+WHERE legajo=6677 AND proyecto= "Base de datos covid" AND dia='2022-04-12'
+
+CALL Ajuste_Liquidacion("Diseñador","Base de datos covid",4);
+
+SELECT * from liquidacion 
