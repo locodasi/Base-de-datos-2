@@ -1,6 +1,17 @@
 UPDATE horas_rendidas SET horas=4
-WHERE legajo=6677 AND proyecto= "Base de datos covid" AND dia='2022-04-12'
+WHERE legajo=6677 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 
-CALL Ajuste_Liquidacion("Diseñador","Base de datos covid",4);
+UPDATE horas_rendidas SET horas=6
+WHERE legajo=22 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
+UPDATE horas_rendidas SET horas=8
+WHERE legajo=2222 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 
-SELECT * from liquidacion 
+UPDATE horas_rendidas SET horas=5
+WHERE legajo=1111 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
+
+/* se agrego 
+"Diseñador"	"Base de datos covid"	"-1"	"4"	"2"
+"Tester"	"Base de datos covid"	"-2"	"4"	"2"
+*/
+CALL Ajuste_Liquidacion("Base de datos covid",4);
+SELECT * from liquidacion;

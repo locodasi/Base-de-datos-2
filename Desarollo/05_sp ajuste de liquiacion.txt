@@ -1,29 +1,70 @@
 delimiter
 $$
-CREATE PROCEDURE Ajuste_Liquidacion( in rol1 VARCHAR(255), in  proyecto1 varchar(255), in mes1 INT)
+CREATE PROCEDURE Ajuste_Liquidacion(in  proyecto1 varchar(255), in mes1 INT)
 BEGIN
 
-SET @diff=0;
-SET @numero_rendidas=0;
-SET @numero_liq=0;
+/*seccion de cursor*/
+DECLARE rol_c VARCHAR(255);
+DECLARE liquidaciones CURSOR FOR SELECT rol FROM aux;
 
-select @numero_rendidas:=SUM(h.horas)
-FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
-WHERE p.rol=rol1 AND h.proyecto=proyecto1 AND (MONTH(h.dia)=mes1 OR MONTH(h.hasta) = mes1);
+SET rol_c=" d";
+SET @numero_de_liq=0;
+SET @numero_de_roles=0;
 
-SELECT @numero_liq:=horas
+INSERT INTO aux(
+SELECT *
 FROM liquidacion l
-WHERE l.rol=rol1 AND l.proyecto=proyecto1 AND l.mes=mes1;
+WHERE l.proyecto=proyecto1 AND l.mes=mes1
+);
 
 
- SET @diff= @numero_rendidas - @numero_liq;
+ SET @numero_de_liq=(SELECT COUNT(DISTINCT a.numero_Liquidacion)
+ FROM aux a
+ );
+SET @numero_de_liq=@numero_de_liq+1;
+
+
+ SET @numero_de_roles=(SELECT COUNT(DISTINCT a.rol)
+ FROM aux a
+ );
  
- SELECT @diff;
+ 
 
+
+OPEN liquidaciones;
+liq:loop
+	fetch liquidaciones INTO rol_c;
+	if @numero_de_roles=0 then leave liq;
+	END if;
+	
+	
+	SET @diff=0;
+	SET @numero_rendidas=0;
+	SET @numero_liq=0;
+
+	SET @numero_rendidas = (select SUM(h.horas)
+	FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
+	WHERE p.rol=rol_c AND h.proyecto=proyecto1 AND (MONTH(h.dia)=mes1 OR MONTH(h.hasta) = mes1));
+
+	SET @numero_liq=(SELECT SUM(a.horas)
+	FROM aux a
+	WHERE a.rol=rol_c);
+	
+
+ 	SET @diff= @numero_rendidas - @numero_liq;
+ 	
 
 	IF @diff != 0 THEN 
-	INSERT INTO liquidacion() VALUES (rol1,proyecto1,@diff,mes1);
+	INSERT INTO liquidacion() VALUES (rol_c,proyecto1,@diff,mes1,@numero_de_liq);
     END IF;
+    
+    SET @numero_de_roles= @numero_de_roles-1;
+    
+END loop;
+close liquidaciones;
 
-END;
+
+TRUNCATE aux;
+END
 $$
+

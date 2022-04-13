@@ -1,0 +1,7 @@
+CREATE TABLE aux(
+rol VARCHAR(255) NOT NULL,
+proyecto VARCHAR(255) NOT NULL,
+horas INT,
+mes INT,
+numero_Liquidacion INT
+);
