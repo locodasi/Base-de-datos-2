@@ -13,7 +13,7 @@ WHERE legajo=1111 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 "Diseñador"	"Base de datos covid"	"-1"	"4"	"2"
 "Tester"	"Base de datos covid"	"-2"	"4"	"2"
 */
-CALL Ajuste_Liquidacion("Base de datos covid",4);
+CALL Ajuste_Liquidacion(4);
 SELECT * from liquidacion;
 
 
@@ -41,7 +41,12 @@ SELECT * from liquidacion;
 
 
 
-/* para usar estas pruebas es necesario cambiar la fecha de la computadora a mayo*/
+/* para usar estas pruebas es necesario cambiar la fecha de la computadora a mayo
+
+  el CALL Calcular_Liquidacion_mensual(); te agregara en liquidacion una insercion con mes 5, horas 7 y numero de liq 1
+  y el ajueste te agregara otra donde la diferencia sera que horas dira -6 y numero:liq 2
+*/
+
 /*
 CALL carga_horas_diarias(22,"Base de datos covid",7,'2022-05-23');
 CALL Calcular_Liquidacion_mensual();
