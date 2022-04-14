@@ -1,4 +1,5 @@
 /*Se debe llamar al finalizar el mes, no al inicio*/
+SET @fecha='2022-04-30';
 CALL carga_horas_mensuales(1111,"Red social",100,NOW());
 CALL carga_horas_mensuales(1234,"Base de datos covid",100,NOW());
 CALL carga_horas_mensuales(1234,"Red social",110,NOW());
