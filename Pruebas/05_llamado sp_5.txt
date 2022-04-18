@@ -20,7 +20,7 @@ SELECT * from liquidacion;
 /*
 se agrega:
 "Diseñador"	"Base de datos covid"	"1"	"4"	"3"
-"Programador"	"Maquina extractora de gritos "	"2"	"4"	"2"
+"Programador"	"Maquina extractora de gritos"	"2"	"4"	"2"
 
 
 */
