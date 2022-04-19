@@ -1,6 +1,18 @@
 delimiter $$
 CREATE PROCEDURE carga_horas_mensuales(legajo INT, proyecto varchar(255), horas INT, fecha datetime)
 BEGIN
-INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,DATE_ADD(fecha,INTERVAL -1 month),fecha);
+
+SET @f=fecha;
+SET@f=DATE_ADD(DATE_ADD(LAST_DAY('2022-04-30'),INTERVAL 1 DAY),INTERVAL -1 MONTH);
+
+while @f!=fecha DO
+if DAYNAME(@f)!='Saturday' AND  DAYNAME(@f)!='Sunday' then
+	INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,@f);
+	END if;
+SET @f=DATE_ADD(@f,INTERVAL 1 DAY);
+END while;
+if DAYNAME(fecha)!='Saturday' AND  DAYNAME(fecha)!='Sunday' then
+	INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,fecha);
+END if;
 end
 $$

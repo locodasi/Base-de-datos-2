@@ -6,7 +6,7 @@ INSERT INTO liquidacion ()(
 
 SELECT p.rol, h.proyecto, SUM(h.horas)AS horas_trabajadas,MONTH (NOW()) AS mes, 1
 FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
-WHERE MONTH(h.dia)=MONTH (NOW()) OR MONTH(h.hasta) = MONTH(NOW())
+WHERE MONTH(h.dia)=MONTH (NOW())
 GROUP BY h.proyecto,p.rol
 
 );

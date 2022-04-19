@@ -3,7 +3,7 @@ WHERE legajo=6677 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 
 UPDATE horas_rendidas SET horas=6
 WHERE legajo=22 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
-UPDATE horas_rendidas SET horas=8
+UPDATE horas_rendidas SET horas=6
 WHERE legajo=2222 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 
 UPDATE horas_rendidas SET horas=5
@@ -20,7 +20,7 @@ SELECT * from liquidacion;
 /*
 se agrega:
 "Diseñador"	"Base de datos covid"	"1"	"4"	"3"
-"Programador"	"Maquina extractora de gritos "	"2"	"4"	"2"
+"Programador"	"Maquina extractora de gritos"	"2"	"4"	"2"
 
 
 */
@@ -31,15 +31,30 @@ WHERE legajo=6677 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 UPDATE horas_rendidas SET horas=10
 WHERE legajo=1212 AND proyecto= "maquina extractora de gritos" AND dia='2022-04-12';
 
-UPDATE horas_rendidas SET horas=12
-WHERE legajo=3113 AND proyecto= "red social" AND dia='2022-04-12';
-UPDATE horas_rendidas SET horas=30
-WHERE legajo=1111 AND proyecto= "red social" AND dia='2022-04-23';
 
 CALL Ajuste_Liquidacion();
 SELECT * from liquidacion;
 
+/*
+se agrega:
 
+"developer"	"Red social"	"-5"	"4"	"2"
+
+ "Developer"	"Maquina extractora de gritos"	"-7"	"4"	"3"
+
+*/
+
+
+UPDATE horas_rendidas SET horas=0
+WHERE legajo=9999 AND proyecto= "maquina extractora de gritos" AND dia='2022-04-26';
+
+UPDATE horas_rendidas SET horas=0
+WHERE legajo=6677 AND proyecto= "red social" AND dia='2022-04-28';
+
+
+
+CALL Ajuste_Liquidacion();
+SELECT * from liquidacion;
 
 /* para usar estas pruebas es necesario cambiar la fecha de la computadora a mayo
 

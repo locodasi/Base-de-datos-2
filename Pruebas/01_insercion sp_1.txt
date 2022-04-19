@@ -2,8 +2,12 @@ SET @fecha='2022-04-12';
 CALL carga_horas_diarias(22,"Base de datos covid",7,@fecha);
 CALL carga_horas_diarias(1111,"Base de datos covid",7,@fecha);
 CALL carga_horas_diarias(1212,"Maquina extractora de gritos",8,@fecha);
-CALL carga_horas_diarias(2222,"Base de datos covid",7,@fecha);
-CALL carga_horas_diarias(6677,"Base de datos covid",5,@fecha);
+CALL carga_horas_diarias(1111,"Red social",7,@fecha);
+CALL carga_horas_diarias(1234,"Base de datos covid",5,@fecha);
+CALL carga_horas_diarias(1234,"Red social",7,@fecha);
+CALL carga_horas_diarias(2222,"Base de datos covid",5,@fecha);
+CALL carga_horas_diarias(2222,"Red social",7,@fecha);
 CALL carga_horas_diarias(3113,"Red social",7,@fecha);
+CALL carga_horas_diarias(6677,"Base de datos covid",5,@fecha);
 
 SELECT * FROM horas_rendidas;

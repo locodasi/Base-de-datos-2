@@ -1,6 +1,14 @@
 delimiter $$
 CREATE PROCEDURE carga_horas_semanal(legajo INT, proyecto varchar(255), horas INT, fecha datetime)
 BEGIN
-INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,DATE_ADD(fecha,INTERVAL -1 WEEK),fecha);
+
+SET @f=fecha;
+SET @f= DATE_ADD(@f,INTERVAL -4 DAY);
+while @f!=fecha do
+INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,@f);
+SET @f=DATE_ADD(@f,INTERVAL 1 DAY);
+END while;
+INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,fecha);
+
 end
 $$

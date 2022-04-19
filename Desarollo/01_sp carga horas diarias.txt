@@ -1,6 +1,6 @@
 delimiter $$
 CREATE PROCEDURE carga_horas_diarias(legajo INT, proyecto varchar(255), horas INT, fecha datetime)
 BEGIN
-INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,fecha,fecha);
+INSERT INTO horas_rendidas() VALUES (legajo,proyecto,horas,fecha);
 end
 $$
