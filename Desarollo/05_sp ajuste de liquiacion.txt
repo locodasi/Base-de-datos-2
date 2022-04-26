@@ -87,7 +87,7 @@ me:loop
 		
 			SET @numero_rendidas = (select SUM(h.horas)
 			FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
-			WHERE p.rol=rol_c AND h.proyecto=proyecto_c AND (MONTH(h.dia)=mes_c);
+			WHERE p.rol=rol_c AND h.proyecto=proyecto_c AND MONTH(h.dia)=mes_c);
 		
 			SET @numero_liq=(SELECT SUM(a.horas)
 			FROM aux a
