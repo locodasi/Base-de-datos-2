@@ -5,3 +5,8 @@ horas INT,
 mes INT,
 numero_Liquidacion INT
 );
+
+CREATE TABLE auxp(
+proyecto VARCHAR(255) NOT NULL,
+mes INT
+);
