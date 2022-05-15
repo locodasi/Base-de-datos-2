@@ -13,7 +13,7 @@ WHERE legajo=1111 AND proyecto= "Base de datos covid" AND dia='2022-04-12';
 "Diseñador"	"Base de datos covid"	"-1"	"4"	"2"
 "Tester"	"Base de datos covid"	"-2"	"4"	"2"
 */
-CALL Ajuste_Liquidacion(4);
+CALL Ajuste_Liquidacion();
 SELECT * from liquidacion;
 
 
@@ -36,7 +36,7 @@ WHERE legajo=3113 AND proyecto= "red social" AND dia='2022-04-12';
 UPDATE horas_rendidas SET horas=30
 WHERE legajo=1111 AND proyecto= "red social" AND dia='2022-04-23';
 
-CALL Ajuste_Liquidacion(4);
+CALL Ajuste_Liquidacion();
 SELECT * from liquidacion;
 
 
@@ -53,6 +53,6 @@ CALL Calcular_Liquidacion_mensual();
 
 UPDATE horas_rendidas SET horas=1
 WHERE legajo=22 AND proyecto= "Base de datos covid" AND dia='2022-05-23';
-CALL Ajuste_Liquidacion(5);
+CALL Ajuste_Liquidacion();
 SELECT * from liquidacion;
 */

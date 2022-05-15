@@ -1,10 +1,10 @@
-/*Se debe llamar al finalizar el mes, no al inicio*/
 SET @fecha='2022-04-30';
-CALL carga_horas_mensuales(1111,"Red social",100,NOW());
-CALL carga_horas_mensuales(1234,"Base de datos covid",100,NOW());
-CALL carga_horas_mensuales(1234,"Red social",110,NOW());
-CALL carga_horas_mensuales(6677,"Red social",56,NOW());
-CALL carga_horas_mensuales(8787,"Maquina extractora de gritos",35,NOW());
-CALL carga_horas_mensuales(9980,"Maquina extractora de gritos",95,NOW());
-CALL carga_horas_mensuales(9999,"Maquina extractora de gritos",85,NOW());
+/*Se debe llamar al finalizar el mes, no al inicio*/
+CALL carga_horas_mensuales(1111,"Red social",100,@fecha);
+CALL carga_horas_mensuales(1234,"Base de datos covid",100,@fecha);
+CALL carga_horas_mensuales(1234,"Red social",110,@fecha);
+CALL carga_horas_mensuales(6677,"Red social",56,@fecha);
+CALL carga_horas_mensuales(8787,"Maquina extractora de gritos ",35,@fecha);
+CALL carga_horas_mensuales(9980,"Maquina extractora de gritos ",95,@fecha);
+CALL carga_horas_mensuales(9999,"Maquina extractora de gritos ",85,@fecha);
 SELECT * FROM horas_rendidas;

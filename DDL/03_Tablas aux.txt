@@ -7,6 +7,8 @@ numero_Liquidacion INT
 );
 
 CREATE TABLE auxp(
-proyecto VARCHAR(255) NOT NULL,
-mes INT
+proyecto VARCHAR(255) NOT NULL
+);
+CREATE TABLE auxm(
+mes int not null
 );

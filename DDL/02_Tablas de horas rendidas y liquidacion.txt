@@ -1,9 +1,10 @@
 create table Horas_rendidas(
 legajo int not null,
 proyecto varchar (255) not null,
-horas int,
-dia datetime,
-hasta datetime,
+horas int not null,
+dia datetime not null,
+hasta datetime not null,
+constraint primary key(legajo,proyecto,horas,dia,hasta),
 constraint foreign key (legajo) references Participantes (legajo),
 constraint foreign key (proyecto) references Participantes (proyecto)
 );
@@ -11,8 +12,9 @@ constraint foreign key (proyecto) references Participantes (proyecto)
 CREATE TABLE liquidacion(
 rol VARCHAR(255) NOT NULL,
 proyecto VARCHAR(255) NOT NULL,
-horas INT,
-mes INT,
-numero_Liquidacion INT,
+horas INT not null,
+mes INT not null,
+numero_Liquidacion INT not null,
+constraint primary key(rol,proyecto,horas,mes,numero_Liquidacion),
 constraint foreign key (proyecto) references horas_rendidas (proyecto)
 );
