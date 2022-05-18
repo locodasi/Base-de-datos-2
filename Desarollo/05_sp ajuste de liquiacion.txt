@@ -60,11 +60,14 @@ me:loop
 		WHERE l.proyecto=proyecto_c AND l.mes=mes_c
 		ORDER BY numero_liquidacion		
 		);
+				
 		
-		 SET @numero_de_liq=(SELECT COUNT(DISTINCT a.numero_Liquidacion)
-		 FROM aux a
+		 SET @numero_de_liq=(SELECT n.siguiente
+		 FROM numerador n, aux a
+		 WHERE n.proyecto =a.proyecto AND n.mes=a.mes
+		 GROUP BY n.siguiente
 		 );
-		SET @numero_de_liq=@numero_de_liq+1;
+		 
 		
 		
 		 SET @numero_de_roles=(SELECT COUNT(DISTINCT a.rol)
@@ -98,6 +101,9 @@ me:loop
 		
 			IF @diff != 0 THEN 
 			INSERT INTO liquidacion() VALUES (rol_c,proyecto_c,@diff,mes_c,@numero_de_liq);
+			UPDATE numerador 
+		   join aux on numerador.proyecto= aux.proyecto AND numerador.mes= aux.mes
+		   SET numerador.siguiente= numerador.siguiente+1;
 		    END IF;
 		    
 		    SET @numero_de_roles= @numero_de_roles-1;

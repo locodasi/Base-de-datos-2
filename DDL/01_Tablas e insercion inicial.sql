@@ -1,3 +1,6 @@
+CREATE DATABASE tp_bd2;
+USE tp_bd2;
+
 create table RRHH(
 legajo int not null primary key,
 nombre varchar(255)
@@ -19,10 +22,3 @@ constraint primary key (legajo,proyecto),
 constraint foreign key (legajo) references RRHH (legajo),
 constraint foreign key (proyecto) references Proyectos (proyecto)
 );
-
-
-
-
-INSERT INTO proyectos() VALUES ("Apple","Red social","Cordoba 1222","Santa fe 23"),("Uruguay","Base de datos covid","Lavalle 345","Cordoba 2000"),
-("Monster Inc","Maquina extractora de gritos","Panama 233","Viamonte 1200");
-

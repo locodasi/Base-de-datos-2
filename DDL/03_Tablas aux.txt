@@ -12,3 +12,17 @@ proyecto VARCHAR(255) NOT NULL
 CREATE TABLE auxm(
 mes int not null
 );
+
+CREATE TABLE numerador(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+proyecto VARCHAR(255),
+mes INT,
+siguiente int
+);
+CREATE TABLE auxl(
+rol VARCHAR(255) NOT NULL,
+proyecto VARCHAR(255) NOT NULL,
+horas INT not null,
+mes INT not null,
+numero_Liquidacion INT not null
+);
