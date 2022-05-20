@@ -1,0 +1,13 @@
+create user app_carga identified by '123';
+create user liquidador identified by '123';
+create user administrador identified by '123';
+
+
+
+GRANT EXECUTE ON procedure  carga_horas_diarias to app_carga@'%';
+GRANT EXECUTE ON procedure  carga_horas_semanal to app_carga@'%';
+GRANT EXECUTE ON procedure  carga_horas_mensuales to app_carga@'%';
+
+GRANT EXECUTE ON procedure  Calcular_Liquidacion_mensual to liquidador@'%';
+
+GRANT all ON  tp_bd2.* to administrador@'%';

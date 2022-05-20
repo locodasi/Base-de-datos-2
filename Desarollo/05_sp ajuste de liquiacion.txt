@@ -21,6 +21,7 @@ SET @numero_de_liq=0;
 SET @numero_de_roles=0;
 SET @numero_de_proyectos=0;
 SET @numero_de_meses=0;
+SET @flag =0;
 
 INSERT INTO auxm(
 SELECT l.mes
@@ -101,9 +102,7 @@ me:loop
 		
 			IF @diff != 0 THEN 
 			INSERT INTO liquidacion() VALUES (rol_c,proyecto_c,@diff,mes_c,@numero_de_liq);
-			UPDATE numerador 
-		   join aux on numerador.proyecto= aux.proyecto AND numerador.mes= aux.mes
-		   SET numerador.siguiente= numerador.siguiente+1;
+			SET @flag=1;
 		    END IF;
 		    
 		    SET @numero_de_roles= @numero_de_roles-1;
@@ -112,6 +111,14 @@ me:loop
 		    
 		END loop;
 		close liquidaciones;
+		
+		if @flag=1 then
+		UPDATE numerador 
+		   join aux on numerador.proyecto= aux.proyecto AND numerador.mes= aux.mes
+		   SET numerador.siguiente= numerador.siguiente+1;
+		   SET @flag=0;
+		   END if;
+		   
 		TRUNCATE aux;
 		
 		SET @numero_de_proyectos= @numero_de_proyectos-1;
@@ -128,4 +135,3 @@ close c_mes;
 TRUNCATE auxm;
 end
 $$
-

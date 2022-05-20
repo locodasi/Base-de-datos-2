@@ -2,7 +2,16 @@ delimiter $$
 CREATE PROCEDURE Calcular_Liquidacion_mensual()
 BEGIN
 
-INSERT INTO auxl ()(
+INSERT INTO liquidacion()(
+
+SELECT p.rol, h.proyecto, SUM(h.horas)AS horas_trabajadas,MONTH (NOW()) AS mes, 1
+FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
+WHERE MONTH(h.dia)=MONTH (NOW())
+GROUP BY p.rol,h.proyecto
+
+);
+
+INSERT INTO auxl()(
 
 SELECT p.rol, h.proyecto, SUM(h.horas)AS horas_trabajadas,MONTH (NOW()) AS mes, 1
 FROM horas_rendidas h INNER JOIN participantes p ON h.legajo=p.legajo AND p.proyecto=h.proyecto
@@ -17,9 +26,6 @@ FROM auxl l
 GROUP BY l.proyecto, l.mes
 );
 
-INSERT INTO liquidacion()(
-SELECT * FROM auxl
-);
 
 delete FROM auxl;
 end
