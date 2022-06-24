@@ -2,8 +2,8 @@ delimiter $$
 CREATE PROCEDURE carga_horas_mensuales(legajo INT, proyecto varchar(255), horas INT, fecha datetime)
 BEGIN
 
-SET @f=fecha;
-SET@f=DATE_ADD(DATE_ADD(LAST_DAY('2022-04-30'),INTERVAL 1 DAY),INTERVAL -1 MONTH);
+SET fecha=LAST_DAY(fecha);
+SET@f=DATE_ADD(DATE_ADD(fecha,INTERVAL 1 DAY),INTERVAL -1 MONTH);
 
 while @f!=fecha DO
 if DAYNAME(@f)!='Saturday' AND  DAYNAME(@f)!='Sunday' then
